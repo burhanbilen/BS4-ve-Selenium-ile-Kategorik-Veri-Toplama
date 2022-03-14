@@ -8,7 +8,7 @@ driver = webdriver.Chrome() # Chrome uygulamasını kullanma
 df = pd.read_csv("linkler.csv", delimiter=",", encoding="utf-16")
 
 yorumlar = []
-for kategori in df.columns:
+for kategori in df.columns[:2]:
     for link in df[kategori].values:
         link += "/yorumlar" # Trendyol'un ürün yorumları sayfasına gitmek için bir eklenti
         driver.get(link) # İstenen bağlantının webdriver üzerinde açılması
@@ -20,6 +20,6 @@ for kategori in df.columns:
             yildiz_sayisi = data.findAll(class_ = "full", attrs={'style':'width: 100%; max-width: 100%;'}) # Yıldız sayısının elde edilmesi
             if yorum != None and yildiz_sayisi != None:
                 yorumlar.append([kategori, len(yildiz_sayisi), yorum.find("p").text.strip()])
-                
-df = pd.DataFrame.from_dict(yorumlar, columns=["Kategori", "Yıldız", "Yorum"])
+
+df = pd.DataFrame(yorumlar, columns=["Kategori", "Yıldız", "Yorum"])
 df.to_csv('yorumlar.csv', index = False, encoding = 'utf-16')
