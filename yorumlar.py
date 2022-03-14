@@ -22,4 +22,5 @@ for kategori in df.columns[:2]:
                 yorumlar.append([kategori, len(yildiz_sayisi), yorum.find("p").text.strip()])
 
 df = pd.DataFrame(yorumlar, columns=["Kategori", "Yıldız", "Yorum"])
+df.sample(frac=1) # Verileri karıştırma
 df.to_csv('yorumlar.csv', index = False, encoding = 'utf-16')
