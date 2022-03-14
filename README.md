@@ -1,1 +1,1 @@
-# BS4-ve-Selenium-ile-Kategorik-Veri-Toplama
+# BeautifulSoup 4 ve Selenium kullanarak Trendyol kullanıcı yorumlarını kategorik olarak elde etme.
