@@ -8,7 +8,7 @@ driver = webdriver.Chrome() # Chrome uygulamasını kullanma
 df = pd.read_csv("linkler.csv", delimiter=",", encoding="utf-16")
 
 yorumlar = []
-for kategori in df.columns[:2]:
+for kategori in df.columns:
     for link in df[kategori].values:
         link += "/yorumlar" # Trendyol'un ürün yorumları sayfasına gitmek için bir eklenti
         driver.get(link) # İstenen bağlantının webdriver üzerinde açılması
