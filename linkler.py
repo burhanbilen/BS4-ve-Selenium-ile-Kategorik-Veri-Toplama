@@ -31,7 +31,7 @@ for kategori in kategori_linkleri.items():
         index += 1 # Sayfa sayısının artırılması
         time.sleep(1) # Çok sık istekte bulunmamak için 1 saniye bekle
         
-        if a == [] or index == 3: # Bir sonraki sayfanın kontrolü (sayfada veri yoksa döngüden çık) ya da her kategori için 10 sayfalık ürün sınırlandırması. Sayfa 15'te dur.
+        if a == [] or index == 3: # Bir sonraki sayfanın kontrolü (sayfada veri yoksa döngüden çık) ya da her kategori için 3 sayfalık ürün sınırlandırması. Sayfa 3'te dur.
             link_listesi[kategori[0]] = urun_linkleri # Elde edilen linkleri ilgili kategoriye liste halinde atama
             break
 
