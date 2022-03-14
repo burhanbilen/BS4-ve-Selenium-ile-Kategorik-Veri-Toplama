@@ -10,7 +10,7 @@ df = pd.read_csv("linkler.csv", delimiter=",", encoding="utf-16")
 yorumlar = []
 for kategori in df.columns:
     for link in df[kategori].values:
-        link += "/yorumlar" # Trendyol'un ürün yorumları sayfasına gitmek için bir eklenti
+        link += "/yorumlar" # Trendyol'un ürün yorumları sayfasına gitmek için bir eklentiw
         driver.get(link) # İstenen bağlantının webdriver üzerinde açılması
         html = driver.page_source # İstenen sayfadaki HTML içeriğin elde edilmesi
 
@@ -21,6 +21,6 @@ for kategori in df.columns:
             if yorum != None and yildiz_sayisi != None:
                 yorumlar.append([kategori, len(yildiz_sayisi), yorum.find("p").text.strip()])
 
-df = pd.DataFrame(yorumlar, columns=["Kategori", "Yıldız", "Yorum"])
-df.sample(frac=1) # Verileri karıştırma
-df.to_csv('yorumlar.csv', index = False, encoding = 'utf-16')
+yorumlar_df = pd.DataFrame(yorumlar, columns=["Kategori", "Yıldız", "Yorum"])
+yorumlar_df = yorumlar_df.sample(frac=1) # Verileri karıştırma
+yorumlar_df.to_csv('yorumlar.csv', index = False, encoding = 'utf-16')
