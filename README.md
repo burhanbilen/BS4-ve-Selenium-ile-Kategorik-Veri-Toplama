@@ -1,0 +1,1 @@
+# BS4-ve-Selenium-ile-Kategorik-Veri-Toplama
